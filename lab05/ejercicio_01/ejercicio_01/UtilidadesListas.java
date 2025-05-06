@@ -64,4 +64,23 @@ public class UtilidadesListas {
         // Devolvemos la cantidad total de nodos
         return contador;
 
+
+        // 5. Metodo generico para comparar si dos listas enlazadas son iguales en contenido y orden
+    public static <T> boolean sonIguales(Node<T> head1, Node<T> head2) {
+        // Mientras haya nodos en ambas listas
+        while (head1 != null && head2 != null) {
+            // Si los datos no son iguales, retornamos false
+            if (!head1.data.equals(head2.data)) {
+                return false;
+            }
+            // Avanzamos en ambas listas
+            head1 = head1.next;
+            head2 = head2.next;
+        }
+
+        // Si ambas llegaron al final al mismo tiempo, son iguales
+        return head1 == null && head2 == null;
+    
+
+}
 }
