@@ -16,4 +16,21 @@ public class UtilidadesListas {
         return false;
     }
 
+
+      // 2. Metodo generico para invertir una lista (ArrayList)
+      public static <T> List<T> invertirLista(List<T> lista) {
+        List<T> invertida = new ArrayList<>(); // Nueva lista para almacenar los elementos en orden inverso
+
+        // Recorremos la lista desde el último elemento hasta el primero
+        for (int i = lista.size() - 1; i >= 0; i--) {
+            invertida.add(lista.get(i)); // Agregamos cada elemento al nuevo arreglo
+        }
+
+        // Devolvemos la lista invertida
+        return invertida;
+    }
+
+
+    
+
 }
