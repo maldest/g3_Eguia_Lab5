@@ -30,7 +30,26 @@ public class UtilidadesListas {
         return invertida;
     }
 
+    // 3. Metodo generico para insertar un nuevo nodo al final de una lista enlazada
+    public static <T> Node<T> insertarAlFinal(Node<T> head, T valor) {
+        Node<T> nuevo = new Node<>(valor); // Creamos un nuevo nodo con el valor
 
-    
+        // Si la lista está vacía, el nuevo nodo será la cabeza
+        if (head == null) return nuevo;
+
+        // Si no, recorremos hasta el último nodo
+        Node<T> actual = head;
+        while (actual.next != null) {
+            actual = actual.next; // Avanzamos al siguiente nodo
+        }
+
+        // Conectamos el último nodo con el nuevo
+        actual.next = nuevo;
+
+        // Retornamos la cabeza de la lista
+        return head;
+    }
+
+
 
 }
