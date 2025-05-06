@@ -105,6 +105,44 @@ public class UtilidadesListas {
     
     }
 
-    
 
+// Metodo main para probar todas las funciones con ejemplos
+    public static void main(String[] args) {
+        // Creamos una lista normal con nombres de juegos
+        List<String> juegos = new ArrayList<>();
+        juegos.add("Zelda");
+        juegos.add("Halo");
+        juegos.add("God of War");
+
+        // Probamos buscarElemento
+        System.out.println("¿Está 'Halo'?: " + buscarElemento(juegos, "Halo"));
+
+        // Probamos invertirLista
+        System.out.println("Lista invertida: " + invertirLista(juegos));
+
+        // Creamos una lista enlazada manualmente con armas
+        Node<String> lista1 = new Node<>("Espada"); // Creamos el primer nodo
+        lista1 = insertarAlFinal(lista1, "Lanza");   // Insertamos al final
+        lista1 = insertarAlFinal(lista1, "Arco");    // Insertamos al final
+
+        // Contamos los nodos de la lista enlazada
+        System.out.println("Nodos en lista1: " + contarNodos(lista1));
+
+        // Creamos una segunda lista enlazada para comparar
+        Node<String> lista2 = new Node<>("Espada");
+        lista2 = insertarAlFinal(lista2, "Lanza");
+        lista2 = insertarAlFinal(lista2, "Arco");
+
+        // Comparamos si ambas listas enlazadas son iguales
+        System.out.println("¿Listas iguales?: " + sonIguales(lista1, lista2));
+
+        // Creamos una tercera lista para concatenar
+        Node<String> lista3 = new Node<>("Hacha");
+
+        // Concatenamos lista1 con lista3
+        lista1 = concatenarListas(lista1, lista3);
+
+        // Contamos de nuevo los nodos de la lista concatenada
+        System.out.println("Nodos después de concatenar: " + contarNodos(lista1));
+    }
 }
