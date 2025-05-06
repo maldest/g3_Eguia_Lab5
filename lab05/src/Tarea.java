@@ -40,5 +40,11 @@ public class Tarea {
             // Comparamos nombre y prioridad -> si ambos coinciden, las tareas se consideran iguales
             return prioridad == tarea.prioridad && nombre.equals(tarea.nombre);
         }
-
+        
+        // Este metodo genera un codigo hash para la tarea
+        // Es util para que Java sepa como ubicarla en listas, sets, etc.
+        
+        public int hashCode() {
+            // Usamos el hash del nombre y le sumamos la prioridad para crear un código único
+            return nombre.hashCode() + prioridad;
 }
