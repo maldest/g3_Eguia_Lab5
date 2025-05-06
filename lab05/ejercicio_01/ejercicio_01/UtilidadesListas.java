@@ -82,5 +82,29 @@ public class UtilidadesListas {
         return head1 == null && head2 == null;
     
 
-}
+
+
+
+
+     // 6. Metodo generico para concatenar dos listas enlazadas
+    public static <T> Node<T> concatenarListas(Node<T> head1, Node<T> head2) {
+        // Si la primera lista está vacía, devolvemos la segunda
+        if (head1 == null) return head2;
+
+        // Recorremos hasta el final de la primera lista
+        Node<T> actual = head1;
+        while (actual.next != null) {
+            actual = actual.next;
+        }
+
+        // Conectamos el último nodo de la primera lista con la segunda
+        actual.next = head2;
+
+        // Devolvemos la lista combinada
+        return head1;
+    
+    }
+
+    
+
 }
