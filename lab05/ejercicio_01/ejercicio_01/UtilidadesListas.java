@@ -1,6 +1,7 @@
 import java.util.ArrayList;
 import java.util.List;
 
+
 public class UtilidadesListas {
 
     // 1. Metodo generico para buscar un elemento en una lista (ArrayList u otra lista de Java)
@@ -16,9 +17,8 @@ public class UtilidadesListas {
         return false;
     }
 
-
-      // 2. Metodo generico para invertir una lista (ArrayList)
-      public static <T> List<T> invertirLista(List<T> lista) {
+    // 2. Metodo generico para invertir una lista (ArrayList)
+    public static <T> List<T> invertirLista(List<T> lista) {
         List<T> invertida = new ArrayList<>(); // Nueva lista para almacenar los elementos en orden inverso
 
         // Recorremos la lista desde el último elemento hasta el primero
@@ -50,8 +50,8 @@ public class UtilidadesListas {
         return head;
     }
 
-     // 4. Metodo generico para contar el numero total de nodos en una lista enlazada
-     public static <T> int contarNodos(Node<T> head) {
+    // 4. Metodo generico para contar el numero total de nodos en una lista enlazada
+    public static <T> int contarNodos(Node<T> head) {
         int contador = 0; // Inicializamos el contador en 0
         Node<T> actual = head; // Empezamos desde la cabeza
 
@@ -63,9 +63,9 @@ public class UtilidadesListas {
 
         // Devolvemos la cantidad total de nodos
         return contador;
+    }
 
-
-        // 5. Metodo generico para comparar si dos listas enlazadas son iguales en contenido y orden
+    // 5. Metodo generico para comparar si dos listas enlazadas son iguales en contenido y orden
     public static <T> boolean sonIguales(Node<T> head1, Node<T> head2) {
         // Mientras haya nodos en ambas listas
         while (head1 != null && head2 != null) {
@@ -80,13 +80,9 @@ public class UtilidadesListas {
 
         // Si ambas llegaron al final al mismo tiempo, son iguales
         return head1 == null && head2 == null;
-    
+    }
 
-
-
-
-
-     // 6. Metodo generico para concatenar dos listas enlazadas
+    // 6. Metodo generico para concatenar dos listas enlazadas
     public static <T> Node<T> concatenarListas(Node<T> head1, Node<T> head2) {
         // Si la primera lista está vacía, devolvemos la segunda
         if (head1 == null) return head2;
@@ -102,11 +98,21 @@ public class UtilidadesListas {
 
         // Devolvemos la lista combinada
         return head1;
-    
     }
 
+    // Metodo auxiliar para imprimir todos los nodos de una lista enlazada
+    public static <T> void imprimirLista(Node<T> head) {
+        System.out.println("Contenido de la lista:"); // Mensaje inicial
+        Node<T> actual = head; // Empezamos desde la cabeza
 
-// Metodo main para probar todas las funciones con ejemplos
+        // Recorremos todos los nodos
+        while (actual != null) {
+            System.out.println("- " + actual.data); // Mostramos el contenido del nodo
+            actual = actual.next; // Avanzamos al siguiente nodo
+        }
+    }
+
+    // Metodo main para probar todas las funciones con ejemplos sencillos (juegos o armas)
     public static void main(String[] args) {
         // Creamos una lista normal con nombres de juegos
         List<String> juegos = new ArrayList<>();
@@ -114,35 +120,41 @@ public class UtilidadesListas {
         juegos.add("Halo");
         juegos.add("God of War");
 
-        // Probamos buscarElemento
-        System.out.println("¿Está 'Halo'?: " + buscarElemento(juegos, "Halo"));
+        // 1. Buscar un elemento en una lista
+        System.out.println("1. ¿Está 'Halo'?: " + buscarElemento(juegos, "Halo"));
 
-        // Probamos invertirLista
-        System.out.println("Lista invertida: " + invertirLista(juegos));
+        // 2. Invertir una lista
+        System.out.println("2. Lista invertida: " + invertirLista(juegos));
 
-        // Creamos una lista enlazada manualmente con armas
-        Node<String> lista1 = new Node<>("Espada"); // Creamos el primer nodo
-        lista1 = insertarAlFinal(lista1, "Lanza");   // Insertamos al final
-        lista1 = insertarAlFinal(lista1, "Arco");    // Insertamos al final
+        // 3. Insertar nodos al final de una lista enlazada
+        Node<String> lista1 = new Node<>("Espada");
+        lista1 = insertarAlFinal(lista1, "Lanza");
+        lista1 = insertarAlFinal(lista1, "Arco");
+        System.out.println("3. Lista 1 creada (armas cuerpo a cuerpo):");
+        imprimirLista(lista1);
 
-        // Contamos los nodos de la lista enlazada
-        System.out.println("Nodos en lista1: " + contarNodos(lista1));
+        // 4. Contar nodos de una lista enlazada
+        System.out.println("4. Nodos en lista1: " + contarNodos(lista1));
 
-        // Creamos una segunda lista enlazada para comparar
+        // 5. Comparar dos listas enlazadas
         Node<String> lista2 = new Node<>("Espada");
         lista2 = insertarAlFinal(lista2, "Lanza");
         lista2 = insertarAlFinal(lista2, "Arco");
+        System.out.println("5. ¿Lista1 es igual a Lista2?: " + sonIguales(lista1, lista2));
 
-        // Comparamos si ambas listas enlazadas son iguales
-        System.out.println("¿Listas iguales?: " + sonIguales(lista1, lista2));
+        // 6. Concatenar dos listas enlazadas y mostrar el resultado
+        Node<String> lista3 = new Node<>("Ballesta");
+        lista3 = insertarAlFinal(lista3, "Catapulta");
 
-        // Creamos una tercera lista para concatenar
-        Node<String> lista3 = new Node<>("Hacha");
+        System.out.println("6. Lista 1 original:");
+        imprimirLista(lista1);
 
-        // Concatenamos lista1 con lista3
-        lista1 = concatenarListas(lista1, lista3);
+        System.out.println("6. Lista 3 a concatenar:");
+        imprimirLista(lista3);
 
-        // Contamos de nuevo los nodos de la lista concatenada
-        System.out.println("Nodos después de concatenar: " + contarNodos(lista1));
+        Node<String> listaCombinada = concatenarListas(lista1, lista3);
+
+        System.out.println("6. Lista combinada (Lista1 + Lista3):");
+        imprimirLista(listaCombinada);
     }
 }
