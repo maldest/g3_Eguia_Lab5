@@ -50,6 +50,18 @@ public class UtilidadesListas {
         return head;
     }
 
+     // 4. Metodo generico para contar el numero total de nodos en una lista enlazada
+     public static <T> int contarNodos(Node<T> head) {
+        int contador = 0; // Inicializamos el contador en 0
+        Node<T> actual = head; // Empezamos desde la cabeza
 
+        // Mientras no lleguemos al final
+        while (actual != null) {
+            contador++; // Contamos el nodo actual
+            actual = actual.next; // Avanzamos al siguiente
+        }
+
+        // Devolvemos la cantidad total de nodos
+        return contador;
 
 }
