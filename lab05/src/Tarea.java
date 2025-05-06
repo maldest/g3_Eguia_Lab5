@@ -17,4 +17,28 @@ public class Tarea {
         return prioridad;
     }
 
+
+
+    // Este metodo es TOSTRING -> para imprimir una tarea por consola d forma estilada
+    
+    public String toString() {
+        return "Tarea: " + nombre + " (Prioridad: " + prioridad + ")";
+    }
+        // Este metodo se usa para comparar si dos tareas son iguales
+        // Lo usamos en métodos como eliminarTarea o contieneTarea
+        
+        public boolean equals(Object obj) {
+            // Si ambas referencias son la misma tarea exacta, retornamos true al instante
+            if (this == obj) return true;
+
+            // Si el objeto que nos pasan es null o no es una instancia de Tarea, no son iguales
+            if (obj == null || getClass() != obj.getClass()) return false;
+
+            // Convertimos el objeto a tipo Tarea para poder comparar sus atributos
+            Tarea tarea = (Tarea) obj;
+
+            // Comparamos nombre y prioridad -> si ambos coinciden, las tareas se consideran iguales
+            return prioridad == tarea.prioridad && nombre.equals(tarea.nombre);
+        }
+
 }
