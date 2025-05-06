@@ -1,4 +1,5 @@
 public class Main {
+    public static void main(String[] args) {
     // 1. Crear una instancia del gestor de tareas
     GestorDeTareas<Tarea> gestor = new GestorDeTareas<>();
 

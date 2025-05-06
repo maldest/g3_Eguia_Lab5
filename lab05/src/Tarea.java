@@ -48,3 +48,4 @@ public class Tarea {
             // Usamos el hash del nombre y le sumamos la prioridad para crear un código único
             return nombre.hashCode() + prioridad;
 }
+}
